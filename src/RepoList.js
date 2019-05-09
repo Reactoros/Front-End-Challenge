@@ -3,7 +3,7 @@ import Repo from './Repo';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-
+//Repos is the object that i got from the github api
 const ReposList = ({Repos}) => {
     return (
 
@@ -11,11 +11,13 @@ const ReposList = ({Repos}) => {
 
 {
 
+ //sending the necessary data to replace them into the dom components
     Repos.map((repo,i) => {
 
         return (
                 <div key = {i}>
                     
+                   
                     <Repo
                         key = {repo.id}
                         name = {repo.name}

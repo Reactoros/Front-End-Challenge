@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
-
+//getting props from RepoList to assign them to the dom
 const Repo = (props) => {
 return (
 
