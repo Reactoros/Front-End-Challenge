@@ -12,10 +12,12 @@ class App extends Component{
 
   constructor() {
 
+    //function to calculate the last 30 days + format it to match the github API
     const GetInterval = () => {
       return new moment().subtract(30, 'days').format("YYYY-MM-DD");
     }
 
+    //setting the state with the necessary elements
       super()
       this.state = {
           repos : [],
@@ -31,6 +33,7 @@ class App extends Component{
 
   componentDidMount() {
 
+    //grabbing data from github api using axios and implement it into the state
     axios
       .get(
         window.encodeURI(
@@ -55,6 +58,7 @@ class App extends Component{
 
   }
 
+//the loading screen
   renderLoading() {
     return (
       <div>
@@ -66,6 +70,7 @@ class App extends Component{
  
 render () {
 
+  //methode that graps data again and push it to the state to display more data
   const LoadData = () => {
     
     axios
@@ -90,6 +95,7 @@ render () {
     this.setState({page:this.state.page+1})
   }
 
+  //condition to check if the data is stillloading to display the loading screen
   if(this.state.loading){
     return this.renderLoading();
   }
