@@ -58,6 +58,11 @@ class App extends Component {
   }
 
   render() {
+    //top of the page function
+    const scrollFunction = () => {
+      window.scrollTo(0, 0);
+    }
+
     // Getting the data when the user clicks the button
     const LoadData = () => {
       axios.get(
@@ -101,6 +106,7 @@ class App extends Component {
           <Spacing />
           <ReposList className="d-inline-block mt-4" Repos={filtredRepos} />
           <button className="btn btn-info mr-2 mb-2 float-right" onClick={LoadData}>Load More ...</button>
+          <button className="btn btn-info ml-2 mb-2 float-left" onClick={scrollFunction}>UP</button>
         </div>
       );
     }
