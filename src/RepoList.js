@@ -2,7 +2,7 @@ import React from 'react';
 import Repo from './Repo';
 import 'bootstrap/dist/css/bootstrap.css';
 
-//Repos is the object that i got from the github api
+// Repos is the object that i got from the github api
 const ReposList = ({ Repos }) => {
   return (
     <div className="container m-b-4">
