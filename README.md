@@ -34,3 +34,8 @@ npm install moment --save
 ```
 use this to install momentJs , a javascript library used to interact with the date and time ina smooth and easy way , i used it to halp me get the -30 last day and use it in the github api 
 
+### `Side notes`
+
+the search input is working just by typing the name of a repo (using the onChange).
+if you load more repos with text on the input , there is a chance that more repos won't show up , cause the filtering is still working.
+so if you want to load more repos clear the search field first.

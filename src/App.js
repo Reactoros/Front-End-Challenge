@@ -3,6 +3,10 @@ import ReposList from './RepoList';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import moment from 'moment';
+import NavBar from './NavBar';
+import Spacing from './Spacing';
+import loading from './loading.gif';
+
 
 
 class App extends Component {
@@ -12,6 +16,7 @@ class App extends Component {
       return new moment().subtract(30, 'days').format("YYYY-MM-DD");
     }
 
+
     //setting up the state of the app
     super();
     this.state = {
@@ -19,7 +24,8 @@ class App extends Component {
       error: 'error',
       loading: true,
       interval: GetInterval(),
-      page: 1
+      page: 1,
+      searchvalue:''
     }
   }
 
@@ -49,7 +55,7 @@ class App extends Component {
   renderLoading() {
     return (
       <div>
-        LOADING...
+        <img height="1020px" width="100%" alt="loading" src={loading}/>
       </div>
     );
   }
@@ -78,13 +84,24 @@ class App extends Component {
       this.setState({ page: this.state.page + 1 });
     }
 
+    //mothode for saving the search input text into the state
+    const OnChangeValue = (event) => {
+      this.setState( {searchvalue : event.target.value} )
+    } 
+
+    //grap the filtered repos object
+    const filtredRepos = this.state.repos.filter(repo => {
+    return repo.name.toLowerCase().includes(this.state.searchvalue.toLowerCase());})
+
     //render methode based on wheater the data is loading or recieved
     if (this.state.loading) {
       return this.renderLoading();
     } else {
       return (
         <div>
-          <ReposList Repos={this.state.repos} />
+          <NavBar OnChangeValue = {OnChangeValue}/>
+          <Spacing/>
+          <ReposList className="d-inline-block mt-4" Repos={filtredRepos} />
           <button className="btn btn-info mr-2 mb-2 float-right" onClick={LoadData}>Load More ...</button>
         </div>
       );

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 //Repos is the object that i got from the github api
 const ReposList = ({ Repos }) => {
   return (
-    <div className="container">
+    <div className="container m-b-4">
       {
         // Sending the necessary data to replace them into the dom components
         Repos.map((repo, i) => {
