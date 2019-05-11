@@ -103,8 +103,10 @@ class App extends Component {
       return (
         <div>
           <NavBar OnChangeValue={OnChangeValue} />
+          <Spacing/>
+          <h1 className="display-1 mt-5 text-center">Most Starred repos in the last 30 days</h1>
           <Spacing />
-          <ReposList className="d-inline-block mt-4" Repos={filtredRepos} />
+          <ReposList className="d-inline-block" Repos={filtredRepos} />
           <button className="btn btn-info mr-2 mb-2 float-right" onClick={LoadData}>Load More ...</button>
           <button className="btn btn-info ml-2 mb-2 float-left" onClick={scrollFunction}>UP</button>
         </div>
